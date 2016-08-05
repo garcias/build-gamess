@@ -21,7 +21,7 @@ end
 
 $GAMESS_PREP = <<SCRIPT
 
-echo "~~~ GAMESS_PREP ~~~
+echo "~~~ GAMESS_PREP ~~~"
 echo "not implemented yet"
 
 SCRIPT
@@ -29,7 +29,7 @@ SCRIPT
 
 $GAMESS_CONFIG = <<SCRIPT
 
-echo "~~~ GAMESS_PREP ~~~
+echo "~~~ GAMESS_PREP ~~~"
 echo "not implemented yet"
 
 SCRIPT
@@ -37,7 +37,7 @@ SCRIPT
 
 $GAMESS_TEST = <<SCRIPT
 
-echo "~~~ GAMESS_PREP ~~~
+echo "~~~ GAMESS_PREP ~~~"
 echo "not implemented yet"
 
 SCRIPT
