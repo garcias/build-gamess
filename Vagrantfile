@@ -13,6 +13,7 @@ Vagrant.configure(2) do |config|
     v.cpus = 2
   end
 
+  config.vm.provision "file", source: "gamess-current.tar.gz", destination: "gamess-current.tar.gz"
   config.vm.provision "shell", privileged: true, inline: $GAMESS_PREP
   config.vm.provision "shell", privileged: false, inline: $GAMESS_CONFIG
   config.vm.provision "shell", privileged: false, inline: $GAMESS_TEST
@@ -44,7 +45,6 @@ msg2 "Getting gfortran version"
 gfortran -dumpversion
 msg2 "Extracting source code from /vagrant"
 cd $INSTALL_DIR
-cp /vagrant/gamess-current.tar.gz ./
 tar -xzf gamess-current.tar.gz
 msg2 "Changing ownership of ./gamess"
 sudo chown -R vagrant gamess
