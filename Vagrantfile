@@ -21,8 +21,33 @@ end
 
 $GAMESS_PREP = <<SCRIPT
 
-echo "~~~ GAMESS_PREP ~~~"
-echo "not implemented yet"
+msg1 () {
+  echo "=== "$1" ==="
+}
+
+msg2 () {
+  echo "~~~ "$1" ~~~"
+}
+
+msg1 "GAMESS_PREP"
+msg2 "Updating apt-get"
+apt-get update -qq
+msg2 "Installing build tools"
+apt-get install -y gfortran csh xauth git curl
+msg2 "Installing atlas math libraries"
+apt-get install -y libblas-dev libatlas-base-dev
+
+INSTALL_DIR=~/
+ATLAS_DIR=/usr/lib/atlas-base
+
+msg2 "Getting gfortran version"
+gfortran -dumpversion
+msg2 "Extracting source code from /vagrant"
+cd $INSTALL_DIR
+cp /vagrant/gamess-current.tar.gz ./
+tar -xzf gamess-current.tar.gz
+msg2 "Changing ownership of ./gamess"
+sudo chown -R vagrant gamess
 
 SCRIPT
 
