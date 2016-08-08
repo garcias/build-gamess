@@ -15,8 +15,6 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell", privileged: true, inline: $GENERAL
   config.vm.provision "shell", privileged: false, inline: $GAMESS_PREP
-  config.vm.provision "shell", privileged: false, inline: $GAMESS_CONFIG
-  config.vm.provision "shell", privileged: false, inline: $GAMESS_TEST
 
 end
 
@@ -62,23 +60,5 @@ cp /vagrant/gamess-current.tar.gz ./
 tar -xzf gamess-current.tar.gz
 rm gamess-current.tar.gz
 
-cd gamess/
-./config
-
 SCRIPT
 
-
-$GAMESS_CONFIG = <<SCRIPT
-
-echo "~~~ GAMESS_PREP ~~~"
-echo "not implemented yet"
-
-SCRIPT
-
-
-$GAMESS_TEST = <<SCRIPT
-
-echo "~~~ GAMESS_PREP ~~~"
-echo "not implemented yet"
-
-SCRIPT
