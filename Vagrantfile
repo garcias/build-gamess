@@ -62,6 +62,9 @@ cp /vagrant/gamess-current.tar.gz ./
 tar -xzf gamess-current.tar.gz
 rm gamess-current.tar.gz
 
+cd gamess/
+./config
+
 SCRIPT
 
 
