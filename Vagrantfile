@@ -13,12 +13,12 @@ Vagrant.configure(2) do |config|
     v.cpus = 2
   end
 
-  config.vm.provision "shell", privileged: true, inline: $GENERAL
-  config.vm.provision "shell", privileged: false, inline: $GAMESS_PREP
+  config.vm.provision "shell", privileged: true, inline: $GAMESS_PREP
+  config.vm.provision "shell", privileged: false, inline: $GAMESS_INSTALL
 
 end
 
-$GENERAL = <<SCRIPT
+$GAMESS_PREP = <<SCRIPT
 
 msg1 () {
   echo "=== "$1" ==="
@@ -39,7 +39,7 @@ apt-get install -y libblas-dev libatlas-base-dev
 SCRIPT
 
 
-$GAMESS_PREP = <<SCRIPT
+$GAMESS_INSTALL = <<SCRIPT
 
 msg1 () {
   echo "=== "$1" ==="
@@ -52,6 +52,7 @@ msg2 () {
 INSTALL_DIR=~/
 ATLAS_DIR=/usr/lib/atlas-base
 
+msg1 "Installing GAMESS source code"
 msg2 "Getting gfortran version"
 msg2 "gfortran is version $(gfortran -dumpversion)"
 msg2 "Extracting source code from /vagrant"
