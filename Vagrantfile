@@ -61,5 +61,8 @@ cp /vagrant/gamess-current.tar.gz ./
 tar -xzf gamess-current.tar.gz
 rm gamess-current.tar.gz
 
+cp /vagrant/postinstall ./
+chmod u+x postinstall
+
 SCRIPT
 
