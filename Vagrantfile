@@ -55,13 +55,12 @@ INSTALL_DIR=~/
 ATLAS_DIR=/usr/lib/atlas-base
 
 msg2 "Getting gfortran version"
-gfortran -dumpversion
+msg2 "gfortran is version $(gfortran -dumpversion)"
 msg2 "Extracting source code from /vagrant"
 cd $INSTALL_DIR
-cp /vagrant/gamess-current.tar.gz ~/
+cp /vagrant/gamess-current.tar.gz ./
 tar -xzf gamess-current.tar.gz
-msg2 "Changing ownership of ./gamess"
-sudo chown -R vagrant gamess
+rm gamess-current.tar.gz
 
 SCRIPT
 
