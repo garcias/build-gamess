@@ -35,6 +35,7 @@ msg2 "Installing build tools"
 apt-get install -y gfortran csh xauth git curl
 msg2 "Installing atlas math libraries"
 apt-get install -y libblas-dev libatlas-base-dev
+echo "kernel.shmmax = 268435456" >> /etc/sysctl.conf
 
 SCRIPT
 
