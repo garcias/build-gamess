@@ -21,8 +21,8 @@ end
 $GAMESS_PREP = <<SCRIPT
 
 # Using 3/4 GB for shared memory
-SHARED_MAX=((768 * 1024 * 1024))
-SHARED_ALL=((768 * 1024 * 1024 / 4096))
+SHARED_MAX=$((768 * 1024 * 1024))
+SHARED_ALL=$((768 * 1024 * 1024 / 4096))
 
 echo "=== Preparing system for GAMESS install ==="
 echo "Updating apt-get"
@@ -32,9 +32,9 @@ apt-get install -y gfortran csh xauth git curl
 echo "Installing atlas math libraries"
 apt-get install -y libblas-dev libatlas-base-dev
 echo "Setting shmmax to $SHARED_MAX"
-echo "kernel.shmmax = "$SHARED_MAX >> /etc/sysctl.conf
 echo "Setting shmall to $SHARED_ALL"
-echo "kernel.shmall = "$SHARED_ALL >> /etc/sysctl.conf
+echo "kernel.shmmax = $SHARED_MAX" >> /etc/sysctl.conf
+echo "kernel.shmall = $SHARED_ALL" >> /etc/sysctl.conf
 sysctl -p
 echo "Installing Java runtime and Jmol"
 apt-get install -y default-jre jmol
