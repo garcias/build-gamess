@@ -20,43 +20,30 @@ end
 
 $GAMESS_PREP = <<SCRIPT
 
-msg1 () {
-  echo "=== "$1" ==="
-}
+SHARED_MEMORY = 268435456
 
-msg2 () {
-  echo "~~~ "$1" ~~~"
-}
-
-msg1 "GAMESS_PREP"
-msg2 "Updating apt-get"
+echo "=== Preparing system for GAMESS install ==="
+echo "Updating apt-get"
 apt-get update -qq
-msg2 "Installing build tools"
+echo "Installing build tools"
 apt-get install -y gfortran csh xauth git curl
-msg2 "Installing atlas math libraries"
+echo "Installing atlas math libraries"
 apt-get install -y libblas-dev libatlas-base-dev
-echo "kernel.shmmax = 268435456" >> /etc/sysctl.conf
+echo "Setting shared memory limit to $SHARED_MEMORY"
+echo "kernel.shmmax = $SHARED_MEMORY" >> /etc/sysctl.conf
 
 SCRIPT
 
 
 $GAMESS_INSTALL = <<SCRIPT
 
-msg1 () {
-  echo "=== "$1" ==="
-}
-
-msg2 () {
-  echo "~~~ "$1" ~~~"
-}
-
 INSTALL_DIR=~/
 ATLAS_DIR=/usr/lib/atlas-base
 
-msg1 "Installing GAMESS source code"
-msg2 "Getting gfortran version"
-msg2 "gfortran is version $(gfortran -dumpversion)"
-msg2 "Extracting source code from /vagrant"
+echo "=== Installing GAMESS source code ==="
+echo "Getting gfortran version"
+echo "gfortran is version $(gfortran -dumpversion)"
+echo "Extracting source code from /vagrant"
 cd $INSTALL_DIR
 cp /vagrant/gamess-current.tar.gz ./
 tar -xzf gamess-current.tar.gz
@@ -64,6 +51,8 @@ rm gamess-current.tar.gz
 
 cp /vagrant/postinstall ./
 chmod u+x postinstall
+
+echo "Remember to run ./postinstall to configure and build GAMESS"
 
 SCRIPT
 
