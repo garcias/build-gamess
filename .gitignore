@@ -39,3 +39,7 @@ Thumbs.db
 # Vagrant #
 ###########
 .vagrant
+
+# GAMESS #
+##########
+gamess-current.tar.gz
