@@ -31,6 +31,7 @@ echo "Installing atlas math libraries"
 apt-get install -y libblas-dev libatlas-base-dev
 echo "Setting shared memory limit to $SHARED_MEMORY"
 echo "kernel.shmmax = "$SHARED_MEMORY >> /etc/sysctl.conf
+sysctl -p
 cat /etc/sysctl.conf | grep -i "shmmax"
 echo "Installing Java runtime and Jmol"
 apt-get install -y default-jre jmol
