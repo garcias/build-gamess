@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir ~/tmp
+
 cd ~/gamess
 ./config
 
@@ -35,6 +37,6 @@ echo "    set USERSCR=/u1/$USER/scr"
 echo "    set GMSPATH=/u1/mike/gamess"
 echo "  Change them to:"
 echo "    set SCR=/tmp"
-echo "    set USERSCR=/tmp"
+echo "    set USERSCR=~/tmp"
 echo "    set GMSPATH=~/gamess"
 echo "=================================================="
