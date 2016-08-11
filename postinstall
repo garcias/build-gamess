@@ -1,5 +1,15 @@
 #!/bin/bash
 
+INSTALL_DIR=~/
+ATLAS_DIR=/usr/lib/atlas-base
+
+tar -xzf gamess-current.tar.gz
+mv gamess/ $INSTALL_DIR
+rm gamess-current.tar.gz
+
+echo "gfortran is version $(gfortran -dumpversion)"
+cd $INSTALL_DIR
+
 mkdir ~/tmp
 
 cd ~/gamess

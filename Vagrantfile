@@ -46,24 +46,11 @@ SCRIPT
 
 $GAMESS_INSTALL = <<SCRIPT
 
-INSTALL_DIR=~/
-ATLAS_DIR=/usr/lib/atlas-base
-
-echo "=== Installing GAMESS source code ==="
-echo "Getting gfortran version"
-echo "gfortran is version $(gfortran -dumpversion)"
-echo "Extracting source code from /vagrant"
-cd $INSTALL_DIR
+cd ~
 cp /vagrant/gamess-current.tar.gz ./
-tar -xzf gamess-current.tar.gz
-rm gamess-current.tar.gz
-
 cp /vagrant/postinstall ./
-chmod u+x postinstall
 cp /vagrant/runtests ./
-chmod u+x runtests
-
-echo "Remember to run ./postinstall to configure and build GAMESS"
+chmod u+x postinstall runtests
 
 SCRIPT
 
