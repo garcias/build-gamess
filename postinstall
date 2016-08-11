@@ -9,6 +9,7 @@ rm gamess-current.tar.gz
 
 echo "gfortran is version $(gfortran -dumpversion)"
 cd $INSTALL_DIR
+echo "install atlas in: $ATLAS_DIR"
 
 mkdir ~/tmp
 
