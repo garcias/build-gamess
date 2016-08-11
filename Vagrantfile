@@ -13,12 +13,12 @@ Vagrant.configure(2) do |config|
     v.cpus = 2
   end
 
-  config.vm.provision "shell", privileged: true, inline: $GAMESS_PREP
-  config.vm.provision "shell", privileged: false, inline: $GAMESS_INSTALL
+  config.vm.provision "shell", privileged: true, inline: $SYSTEM_PREP
+  config.vm.provision "shell", privileged: false, inline: $BUILD_PREP
 
 end
 
-$GAMESS_PREP = <<SCRIPT
+$SYSTEM_PREP = <<SCRIPT
 
 # Using 3/4 GB for shared memory
 SHARED_MAX=$((768 * 1024 * 1024))
@@ -44,7 +44,7 @@ apt-get install -y openbabel
 SCRIPT
 
 
-$GAMESS_INSTALL = <<SCRIPT
+$BUILD_PREP = <<SCRIPT
 
 cd ~
 cp /vagrant/gamess-current.tar.gz ./
