@@ -48,9 +48,9 @@ $GAMESS_INSTALL = <<SCRIPT
 
 cd ~
 cp /vagrant/gamess-current.tar.gz ./
-cp /vagrant/postinstall ./
-cp /vagrant/runtests ./
-chmod u+x postinstall runtests
+cp /vagrant/build-gamess.sh ./
+cp /vagrant/test-gamess.sh ./
+chmod u+x build-gamess.sh test-gamess.sh
 
 SCRIPT
 
