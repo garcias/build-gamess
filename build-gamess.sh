@@ -8,12 +8,12 @@ mv gamess/ $INSTALL_DIR
 rm gamess-current.tar.gz
 
 echo "gfortran is version $(gfortran -dumpversion)"
-cd $INSTALL_DIR
-echo "install atlas in: $ATLAS_DIR"
+echo "atlas libraries are in: $ATLAS_DIR"
 
+cd $INSTALL_DIR
 mkdir ~/tmp
 
-cd ~/gamess
+cd $INSTALL_DIR/gamess
 ./config
 
 # build DDI
@@ -33,12 +33,12 @@ grep -i --color "cannot stat" compall.log
 ./lked gamess 00 >& lked.log
 grep -i --color "successful" lked.log
 
-echo "PATH=$PATH:~/gamess" >> ~/.bashrc
+echo "PATH=$PATH:$INSTALL_DIR/gamess" >> ~/.bashrc
 
 # Manual configuration
 echo "=================================================="
 echo "  Building of GAMESS done"
-echo "  Added ~/gamess to PATH in .bashrc"
+echo "  Added $INSTALL_DIR/gamess to PATH in .bashrc"
 echo "  source ~/.bashrc before using gamess"
 echo "=================================================="
 echo "  Edit rungms to set paths"
@@ -49,5 +49,5 @@ echo "    set GMSPATH=/u1/mike/gamess"
 echo "  Change them to:"
 echo "    set SCR=/tmp"
 echo "    set USERSCR=~/tmp"
-echo "    set GMSPATH=~/gamess"
+echo "    set GMSPATH=$INSTALL_DIR/gamess"
 echo "=================================================="
