@@ -60,6 +60,8 @@ rm gamess-current.tar.gz
 
 cp /vagrant/postinstall ./
 chmod u+x postinstall
+cp /vagrant/runtests ./
+chmod u+x runtests
 
 echo "Remember to run ./postinstall to configure and build GAMESS"
 
