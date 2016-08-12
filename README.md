@@ -24,6 +24,7 @@ For the scripts to work, you must first [request the source code](http://www.msg
 Virtual machines and containers usually incur a performance hit; but they offer the benefit of portability and reproducibility. 
 If you can get a particular computing environment working in their VM, then anyone else can replicate this environment with little effort. 
 For an instructor trying to develop and troubleshoot tutorials for an entire class of students, the tradeoff between performance and reproducibility is worthwhile.
+Another benefit is isolation from your personal computing environment, which is desirable when a student is using their own personal computer.
 
 Combined with free software, VMs can enable a "distributed" computing lab model. 
 Instead of you managing a fleet of computers or accounts on a cluster, students can install and run the software on their own. 
