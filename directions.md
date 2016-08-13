@@ -45,9 +45,9 @@ Use Git to clone this repository, or just download it as a .zip and extract into
 
 Download and place the source code archive (`gamess-current.tar.gz`) into this new directory. A convenient way to do this is with `curl` if you have it installed. (The actual password will be different from the example below.)
 
-    ```bash
-        curl -LO -u source:eioVvn5U http://www.msg.chem.iastate.edu/GAMESS/download/source/gamess-current.tar.gz
-    ```
+```bash
+    > curl -LO -u source:eioVvn5U http://www.msg.chem.iastate.edu/GAMESS/download/source/gamess-current.tar.gz
+```
 
 Then create the machine and `ssh` into it. It will install dependencies and copy `gamess-current.tar.gz` into the home directory.
 
@@ -59,7 +59,9 @@ Once you're logged in, check that the provisioning was successful. Make sure the
 
 ```bash
     > cat /proc/sys/kernel/shmmax
+    805306368
     > cat /proc/sys/kernel/shmall
+    196608
     > cd ~
     > ls gamess-current.tar.gz
 ```
