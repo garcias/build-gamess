@@ -38,4 +38,10 @@ This project will show two examples: Vagrant + Virtualbox for running a local VM
 This project is part of a broader effort to put computational-chemistry tools into students hands. 
 A future project will be devoted to the student's perspective, with installation not only of GAMESS but also Jmol, OpenBabel, Cloud9IDE, and others!
 
+## What you can do
+
+1. Try it out and report back. See `directions.md` for how to proceed.
+2. Fork it and improve it
+3. Fork it and adapt it (e.g. for Digital Ocean VPS or Docker image)
+
 ## Acknowledgments
