@@ -1,6 +1,11 @@
 # build-gamess
 build the General Atomic and Molecular Electronic Structure System (GAMESS) on Ubuntu for simple, single-core runs
 
+## Whom this is for
+
+Chemistry teachers can build GAMESS for free and provide it to their students, who can then do their own quantum chemistry calculations. 
+In addition, anyone curious about computational chemistry can use this to get started quickly, without having to buy expensive software.
+
 ## What this does
 
 The scripts will help you build GAMESS from source code on a virtual machine or container, relatively quickly and without need for specialized equipment or software. 
