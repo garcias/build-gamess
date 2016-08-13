@@ -5,12 +5,13 @@ build the General Atomic and Molecular Electronic Structure System (GAMESS) on U
 
 The scripts will help you build GAMESS from source code on a virtual machine or container, relatively quickly and without need for specialized equipment or software. 
 The default configuration is for a single-processor node and only 768 MB of shared memory. 
-You can deply the resulting binary to other VMs/containers in a computational lab setting, with installation of the appropriate dependencies.
+You can deploy the resulting binary to other VMs/containers in a computational lab setting, with installation of the appropriate dependencies.
 
 ## What it doesn't do
 
 As written, the scripts and instructions won't build you a parallel-ready, research-grade configuration for your cluster. 
 The broad aim is to get students some basic, practical experience running computations with professional tools. 
+It also gives them the freedom to experiment using their less-powerful, personal computing resources. 
 This specific project helps instructors build and deploy those tools. 
 
 ## What is missing?
