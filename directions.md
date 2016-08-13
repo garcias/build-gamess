@@ -66,3 +66,70 @@ Once you're logged in, check that the provisioning was successful. Make sure the
     > ls gamess-current.tar.gz
 ```
 
+## Compiling the source code
+
+Once your VM/container is ready, run the build script. 
+
+It will extract the source code from `gamess-current.tar.gz` into `~/gamess` and then run the script `gamess/config`. 
+
+    > ./build-gamess.sh
+
+The script is interactive and requires specific input from you. If you're starting with a `trusty64` box and the original provisioning script, your answers *should* be as below. The script should offer the equivalent of `~/gamess` as the default GAMESS and build directories.
+
+- target machine name: `linux64`
+- GAMESS directory: *(accept the default)*
+- build directory: *(accept the default)*
+- version: *(accept the default)*
+- compiler: `gfortran`
+- version: `4.8`
+- math library: `atlas`
+- math location: `/usr/lib/atlas-base`
+- communication: `sockets`
+- try LIBCCHEM?: `no`
+
+The script will compile the code, which should take 20-30 minutes. It should finish with the line:
+
+    The linking of GAMESS to binary gamess.00.x was successful.
+
+Open the file `rungms` with a text editor, such as `nano`... 
+
+    > nano ~/gamess/rungms
+
+... or the Cloud9 IDE editor.
+
+    > c9 open ~/gamess/rungms
+
+Search for the `SET` lines for the variables `SCR`, `USERSCR`, `GMSPATH` and change them to match the following:
+
+    set SCR=/tmp
+    set USERSCR=~/tmp
+    set GMSPATH=~/gamess
+
+Save the file and exit the editor.
+
+Now that it's built, archive `gamess` as `gamess-built.tar.gz` for future use.
+
+    > tar -czf gamess-built.tar.gz ~/gamess
+
+If using Cloud9, you can download the archive by right-clicking on it in the file list and selecting `Download`.
+
+If using Vagrant, move the archive into `/vagrant`, which syncs with the directory `build-gamess/` on your host operating system. 
+
+    > mv gamess-built.tar.gz /vagrant/
+
+
+## Testing the build
+
+But before sharing it with you colleagues and students, test it first! First source `.bashrc` and then run the test script. You should get the message `GAMESS passed 47 of 47 tests` after several minutes.
+
+    > source ~/.bashrc
+    > ./test-gamess.sh
+
+Try using the `rungms` script yourself. If you have a display set, try viewing the output using jmol. (Currently doesn't work on Cloud9 unless you install `novnc`, coming later.)
+
+    > cp gamess/tests/standard/exam01.inp ./
+    > rungms exam01.inp > exam01.log
+    > jmol exam01.log
+
+Done!
+
