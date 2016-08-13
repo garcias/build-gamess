@@ -18,7 +18,7 @@ This specific project helps instructors build and deploy those tools.
 
 GAMESS is available to the public with an *academic* license, not an open-source one. 
 *It cannot be distributed publicly.* 
-For the scripts to work, you must first [request the source code](http://www.msg.ameslab.gov/gamess/License_Agreement.html) from [Mark Gordon's Quantum Theory Group](http://www.msg.chem.iastate.edu), and add it to your copy of this repository.
+For the scripts to work, you must first [request the source code](http://www.msg.ameslab.gov/gamess/License_Agreement.html) from [Mark Gordon's Quantum Theory Group](http://www.msg.chem.iastate.edu), and add it to your local copy of this repository.
 
 ## Why use VMs?
 
