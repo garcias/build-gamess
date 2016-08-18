@@ -34,19 +34,15 @@ grep -i --color "successful" lked.log
 
 echo "PATH=$PATH:~/gamess" >> ~/.bashrc
 
+cp rungms rungms-old
+sed --in-place=.bak s/"\/scr\/\$USER"/"\/tmp"/g rungms 
+sed --in-place=.bak s/"\/u1\/\$USER\/scr"/"\~\/tmp"/g rungms 
+sed --in-place=.bak s/"\/u1\/mike"/"\~"/g rungms 
+rm rungms.bak
+
 # Manual configuration
 echo "=================================================="
 echo "  Building of GAMESS done"
 echo "  Added ~/gamess to PATH in .bashrc"
 echo "  source ~/.bashrc before using gamess"
-echo "=================================================="
-echo "  Edit rungms to set paths"
-echo "  Open rungms and find the following 3 lines:"
-echo "    set SCR=/scr/$USER"
-echo "    set USERSCR=/u1/$USER/scr"
-echo "    set GMSPATH=/u1/mike/gamess"
-echo "  Change them to:"
-echo "    set SCR=/tmp"
-echo "    set USERSCR=~/tmp"
-echo "    set GMSPATH=~/gamess"
 echo "=================================================="
