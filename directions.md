@@ -91,22 +91,6 @@ The script will compile the code, which should take 20-30 minutes. It should fin
 
     The linking of GAMESS to binary gamess.00.x was successful.
 
-Open the file `rungms` with a text editor, such as `nano`... 
-
-    > nano ~/gamess/rungms
-
-... or the Cloud9 IDE editor.
-
-    > c9 open ~/gamess/rungms
-
-Search for the `SET` lines for the variables `SCR`, `USERSCR`, `GMSPATH` and change them to match the following:
-
-    set SCR=/tmp
-    set USERSCR=~/tmp
-    set GMSPATH=~/gamess
-
-Save the file and exit the editor.
-
 Now that it's built, archive `gamess` as `gamess-built.tar.gz` for future use.
 
     > tar -czf gamess-built.tar.gz ~/gamess
