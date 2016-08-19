@@ -1,5 +1,6 @@
 #!/bin/bash
 
+REPO_DIR=$(pwd)
 ATLAS_DIR=/usr/lib/atlas-base
 
 tar -xzf gamess-current.tar.gz
@@ -40,9 +41,20 @@ sed --in-place=.bak s/"\/u1\/\$USER\/scr"/"\~\/tmp"/g rungms
 sed --in-place=.bak s/"\/u1\/mike"/"\~"/g rungms 
 rm rungms.bak
 
+# archive and save in repository
+tar -czf $REPO_DIR/gamess-built.tar.gz ~/gamess
+
+# Run tests and report output
+./runall 00 >& runall.log
+grep -i --color 'terminated normally' exam*.log > exam-report.log
+NUM_PASSED=$(cat exam-report.log | wc -l)
+echo "GAMESS passed $NUM_PASSED of 47 tests"
+echo "Check exam-report.log for list of failed tests"
+
 # Manual configuration
 echo "=================================================="
 echo "  Building of GAMESS done"
 echo "  Added ~/gamess to PATH in .bashrc"
 echo "  source ~/.bashrc before using gamess"
+echo "  Archived as gamess-built.tar.gz"
 echo "=================================================="
