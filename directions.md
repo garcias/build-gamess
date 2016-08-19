@@ -103,9 +103,9 @@ The script archives `gamess` as `gamess-built.tar.gz` for future use. If using C
 Try using the `rungms` script yourself. If you have a display set, try viewing the output using jmol. (Currently doesn't work on Cloud9 unless you install `novnc`, coming later.)
 
     > bash
-    > cp gamess/tests/standard/exam01.inp ./
-    > rungms exam01.inp > exam01.log
-    > jmol exam01.log
+    > cp ~/gamess/tests/standard/exam01.inp ./test.inp
+    > rungms test.inp > test.log
+    > jmol test.log
 
 Done!
 
