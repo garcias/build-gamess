@@ -25,5 +25,5 @@ apt-get install -y default-jre jmol
 echo "Installing OpenBabel"
 apt-get install -y openbabel
 
-chmod u+x build-gamess.sh test-gamess.sh
+chmod u+x build-gamess.sh
 
