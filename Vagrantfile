@@ -49,8 +49,7 @@ $BUILD_PREP = <<SCRIPT
 cd ~
 cp /vagrant/gamess-current.tar.gz ./
 cp /vagrant/build-gamess.sh ./
-cp /vagrant/test-gamess.sh ./
-chmod u+x build-gamess.sh test-gamess.sh
+chmod u+x build-gamess.sh
 
 SCRIPT
 
