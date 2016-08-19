@@ -1,5 +1,6 @@
 #!/bin/bash
 
+REPO_DIR=$(pwd)
 ATLAS_DIR=/usr/lib/atlas-base
 
 tar -xzf gamess-current.tar.gz
@@ -34,19 +35,26 @@ grep -i --color "successful" lked.log
 
 echo "PATH=$PATH:~/gamess" >> ~/.bashrc
 
+cp rungms rungms-old
+sed --in-place=.bak s/"\/scr\/\$USER"/"\/tmp"/g rungms 
+sed --in-place=.bak s/"\/u1\/\$USER\/scr"/"\~\/tmp"/g rungms 
+sed --in-place=.bak s/"\/u1\/mike"/"\~"/g rungms 
+rm rungms.bak
+
+# archive and save in repository
+tar -czf $REPO_DIR/gamess-built.tar.gz ~/gamess
+
+# Run tests and report output
+./runall 00 >& runall.log
+grep -i --color 'terminated normally' exam*.log > exam-report.log
+NUM_PASSED=$(cat exam-report.log | wc -l)
+echo "GAMESS passed $NUM_PASSED of 47 tests"
+echo "Check exam-report.log for list of failed tests"
+
 # Manual configuration
 echo "=================================================="
 echo "  Building of GAMESS done"
 echo "  Added ~/gamess to PATH in .bashrc"
 echo "  source ~/.bashrc before using gamess"
-echo "=================================================="
-echo "  Edit rungms to set paths"
-echo "  Open rungms and find the following 3 lines:"
-echo "    set SCR=/scr/$USER"
-echo "    set USERSCR=/u1/$USER/scr"
-echo "    set GMSPATH=/u1/mike/gamess"
-echo "  Change them to:"
-echo "    set SCR=/tmp"
-echo "    set USERSCR=~/tmp"
-echo "    set GMSPATH=~/gamess"
+echo "  Archived as gamess-built.tar.gz"
 echo "=================================================="
