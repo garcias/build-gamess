@@ -1,10 +1,23 @@
-# build-gamess
-build the General Atomic and Molecular Electronic Structure System (GAMESS) on Ubuntu for simple, single-core runs
+# `build-gamess`
+
+- build the General Atomic and Molecular Electronic Structure System (GAMESS) on Ubuntu for simple, single-core runs
+
+## Quick start
+
+Do you have Vagrant and Virtualbox installed already, and a copy of gamess-current.tar.gz sitting in your Downloads folder? Then clone this repo, move the archive into the repo directory, and start the VM.
+
+```bash
+    $ clone git@github.com:garcias/build-gamess.git
+    $ cd build-gamess
+    $ mv ~/Downloads/gamess-current.tar.gz ./
+    $ vagrant up && vagrant ssh
+```
 
 ## Whom this is for
 
 Chemistry teachers can build GAMESS for free and provide it to their students, who can then do their own quantum chemistry calculations. 
 In addition, anyone curious about computational chemistry can use this to get started quickly, without having to buy expensive software.
+Ready to get started? [Read the directions.](directions.md)
 
 ## What this does
 
