@@ -1,10 +1,10 @@
-# `build-gamess`
+# build-gamess
 
 Build the General Atomic and Molecular Electronic Structure System (GAMESS) on Ubuntu for simple, single-core runs
 
 ## Quick start
 
-Do you have Vagrant and Virtualbox installed already, and a copy of gamess-current.tar.gz sitting in your Downloads folder? Then clone this repo, move the archive into the repo directory, and start the VM.
+Do you have Vagrant and Virtualbox installed already, and a copy of `gamess-current.tar.gz` sitting in your Downloads folder? Then clone this repo, move the archive into the repo directory, and start the VM.
 
 ```bash
     $ clone git@github.com:garcias/build-gamess.git
